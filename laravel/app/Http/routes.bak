@@ -1,0 +1,11 @@
+<?php
+Route::post('get_details', 'LeaderController@index');
+Route::get('/',function(){ echo "welcome" ;});
+Route::controllers([
+
+	'auth' => 'Auth\AuthController',
+
+	'password' => 'Auth\PasswordController'
+      
+]);
+?>

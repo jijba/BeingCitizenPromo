@@ -1,0 +1,259 @@
+<html>
+	<head>
+		<link href = "css/style.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href = "flaticons/flaticon.css" rel="stylesheet">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
+	</head>
+	<body>
+		<div class = "screen">
+			<div id = "container" class = "screenbox">
+				<div class = "welcome-screen">
+					<div id = "welcome">
+						Being Citizen
+					</div>
+					<div id = "rudimentary">
+						<div class = "explore btn btn-strong">Explore&#8595;</div>
+						<div class = "main-site btn btn-strong">Skip&#8594;</div>
+					</div>
+				</div>
+			</div>
+			<!--Voice-->
+			<div id = "voice" class = "screenbox">
+				<div id = "voice-wrapper">
+					<div id = "voice-box" class = "title">
+						Raise your <span id  = "high_vo">Voice</span>
+					</div>
+					<div id = "voice-box-desc" class = "desc">
+						Now, through the Click of a Button, raise civic issues that bother you the most. Seek Support by sharing, and we will make sure your representatives answerable to it. High Time, No?
+					</div>
+					<div id = "voice-img" class = "fimg">
+						<i class = "flaticon-man282"></i>
+					</div>
+				</div>
+			</div>
+			<!--Opinion-->
+			<div class = "screenbox" id = "opinion">
+				<div id="opinion-wrapper">
+					<div id = "opinion-box" class = "title">
+						Opinion That <span id  = "high_op">Matters</span>
+					</div>
+					<div id = "opinion-box-desc" class = "desc">
+						Now, Debate with your peers and your representatives over issues that are pertinent and poignant. We seek to make your opinion as a cause of action rather than a simple dissemination of information by taking it to people that matter.
+					</div>
+					<div id = "opinion-img" class="fimg">
+						<i class = "flaticon-person277"></i>
+					</div>
+				</div>
+			</div>
+			<!--Know-->
+			<div class = "screenbox" id = "know">
+				<div id = "know-wrapper">
+					<div id = "know-box" class = "title">
+						<span id  = "high_kn">Know</span> More
+					</div>
+					<div id = "know-box-desc" class = "desc">
+					We strongly believe in the vision of making Politics more Accountable & Transparent. Thus, We will continue to bring to you, stuff (read: info-graphics, Videos maybe even Cartoons) that shall spell out things easy for you.
+					</div>
+					<div id = "know-img" class="fimg">
+						<i class = "flaticon-books46"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(".explore").click(function(){
+				var html = $("body,html");
+				$(html).animate({scrollTop:window.innerHeight+'px'});
+			});
+
+			$(document).ready(function(){
+				//voice
+				
+				var controller = new ScrollMagic.Controller();
+				
+				//For voice box, defining tween elements
+				var blockTween_voice = new TweenMax.to('#voice-box',1.7,{
+					transform:'translateY('+Math.min($(".screenbox").height(),$(".screenbox").width())*0.01+'em)',
+					opacity:'1'
+				});
+				
+				var voice_desc_tween = new TweenMax.to('#voice-box-desc',1.7,{
+					transform:'translateY('+Math.min($(".screenbox").height(),$(".screenbox").width())*0.015+'em)',
+					opacity:'1'
+				})
+				
+				var voice_high = new TweenMax.to('#high_vo',2.3,{
+					color:'#F5F5F5'
+				});
+				
+				var voice_img = new TweenMax.to('#voice-img',2.2,{
+					opacity:1,
+					transform:'translateY('+Math.max($(".screenbox").height(),$(".screenbox").width())*0.008+'em)',
+				});
+
+				//Now creating Scenes
+				var voice_title = new ScrollMagic.Scene({
+					triggerElement: '#voice'
+				})
+				.setTween(blockTween_voice);
+				
+				var voice_desc = new ScrollMagic.Scene({
+					triggerElement: '#voice',
+				})
+				.setTween(voice_desc_tween);
+				
+				var voice_hi = new ScrollMagic.Scene({
+					triggerElement:'#voice',
+				})
+				.setTween(voice_high);
+				
+				var voice_im = new ScrollMagic.Scene({
+					triggerElement:'#voice',
+				})
+				.setTween(voice_img);
+				
+				//Opinion
+				
+				var blockTween_opinion = new TweenMax.to('#opinion-box',1.7,{
+					transform:'translateY('+Math.min($(".screenbox").height(),$(".screenbox").width())*0.01+'em)',
+					opacity:'1'
+				});
+				
+				var op_desc_tween = new TweenMax.to('#opinion-box-desc',1.7,{
+					transform:'translateY('+Math.min($(".screenbox").height(),$(".screenbox").width())*0.015+'em)',
+					opacity:'1'
+				});
+				
+				var op_hi = new TweenMax.to('#high_op',2.3,{
+					color:'#F5F5F5'
+				});
+				
+				var op_image = new TweenMax.to('#opinion-img',2.2,{
+					opacity:1,
+					transform:'translateY('+Math.max($(".screenbox").height(),$(".screenbox").width())*0.008+'em)',
+				});
+				
+				//set opion triggers
+				
+				var opinion_title = new ScrollMagic.Scene({
+					triggerElement: '#opinion'
+				})
+				.setTween(blockTween_opinion);
+				
+				var opinion_desc = new ScrollMagic.Scene({
+					triggerElement: '#opinion'
+				})
+				.setTween(op_desc_tween);
+				
+				var opinion_hi = new ScrollMagic.Scene({
+					triggerElement: '#opinion'
+				})
+				.setTween(op_hi);
+				
+				var opinion_im = new ScrollMagic.Scene({
+					triggerElement: '#opinion'
+				})
+				.setTween(op_image);
+				
+				//Know More
+				
+				var blockTween_know = new TweenMax.to('#know-box',1.7,{
+					transform:'translateY('+Math.min($(".screenbox").height(),$(".screenbox").width())*0.01+'em)',
+					opacity:'1'
+				});
+				
+				var know_desc_tween = new TweenMax.to('#know-box-desc',1.7,{
+					transform:'translateY('+Math.min($(".screenbox").height(),$(".screenbox").width())*0.015+'em)',
+					opacity:'1'
+				});
+				
+				var know_high = new TweenMax.to('#high_kn',2.3,{
+					color:'#F5F5F5'
+				});
+				
+				var know_img = new TweenMax.to('#know-img',2.2,{
+					opacity:1,
+					transform:'translateY('+Math.max($(".screenbox").height(),$(".screenbox").width())*0.008+'em)',
+				});
+				
+				var know_title = new ScrollMagic.Scene({
+					triggerElement:'#know'
+				})
+				.setTween(blockTween_know);
+				
+				var know_desc = new ScrollMagic.Scene({
+					triggerElement:'#know'
+				})
+				.setTween(know_desc_tween);
+				
+				var know_hi = new ScrollMagic.Scene({
+					triggerElement:'#know'
+				})
+				.setTween(know_high);
+				
+				var know_im = new ScrollMagic.Scene({
+					triggerElement:'#know'
+				})
+				.setTween(know_img);
+				
+				controller.addScene([
+					voice_title,
+					voice_desc,
+					voice_hi,
+					voice_im,//voice
+					opinion_title,
+					opinion_desc,
+					opinion_hi,
+					opinion_im, //opinion
+					know_title,
+					know_desc,
+					know_hi,
+					know_im,
+				]);
+				
+				//background-colors for tabs
+				
+				var voice_bg = new TweenMax.to('#voice-wrapper',0.4,{
+					background:'#ff1744',
+					height:'100%',
+				});
+				
+				var voice_bg_screen = new ScrollMagic.Scene({
+					triggerElement:'#voice',
+				})
+				.setTween(voice_bg);
+				
+				var opinion_bg = new TweenMax.to('#opinion-wrapper',0.4,{
+					background:'#1987B2',
+					height:'100%',
+				});
+				
+				var opinion_bg_screen = new ScrollMagic.Scene({
+					triggerElement:'#opinion',
+				}).
+				setTween(opinion_bg);
+				
+				var know_bg = new TweenMax.to('#know-wrapper',0.4,{
+					background:'#9CCC65',
+					height:'100%',
+				});
+				
+				var know_bg_screen = new ScrollMagic.Scene({
+					triggerElement:'#know',
+				}).
+				setTween(know_bg);
+				
+				controller.addScene([
+					voice_bg_screen,
+					opinion_bg_screen,
+					know_bg_screen
+				]);
+			});
+		</script>
+	</body>
+</html>

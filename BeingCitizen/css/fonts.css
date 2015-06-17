@@ -1,0 +1,16 @@
+@font-face{
+	font-family:'Heading';
+	src:url('../fonts/Amaranth.otf');
+}
+@font-face{
+	font-family: 'Body';
+	src:url('../fonts/Junction.otf');
+}
+html,body
+{
+	font-family: 'Body';
+	height:100%;
+	width:100%;
+	margin:0;
+	padding:0;
+}
